@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan recovery concern</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, sans-serif;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        h1 {
+            color: #f5f5f5;
+            margin-bottom: 15px;
+        }
+        form {
+            background: #ffb6c1;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #000080;
+        }
+        input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            font-family: "Times New Roman", Times, serif;
+            font-weight: bold;
+            font-size: 1.6em;
+            color: #DC143C;
+            text-align: center;
+            margin-top: 18px;
+        }
+
+    </style>
+</head>
+<body>
+      <div class="container">
+          <h1>Loan Forecast</h1>
+          {% if result %}
+                <div class="result">{{ result }}</div>
+          {% endif %}
+          <form method="post" action="/predict">
+              <label>Credit Score</label>
+              <input type="text" name="Credit Score">
+
+              <label>Annual Income</label>
+              <input type="text" name="Annual Income">
+
+              <label>Years in current job</label>
+              <input type="text" name="Years in current job">
+
+               <label>Home Ownership</label>
+              <input type="text" name="Home Ownership">
+
+              <label>Monthly Debt</label>
+              <input type="text" name="Monthly Debt">
+
+              <label>Years of Credit History</label>
+              <input type="text" name="Years of Credit History">
+
+
+              <label>Number of Open Accounts</label>
+              <input type="text" name="Number of Open Accounts">
+
+
+              <label>Current Credit Balance</label>
+              <input type="text" name="Current Credit Balance">
+
+              <label>Maximum Open Credit</label>
+              <input type="text" name="Maximum Open Credit">
+
+              <input type="submit" value="Predict">
+          </form>
+      </div>
+</body>
+</html>
